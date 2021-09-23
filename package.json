@@ -12,7 +12,7 @@
     "build:cid": "ng build @xploregroup/components"
     
   },
-  "private": true,
+  "private": false,
   "prepublishOnly": true,
   "dependencies": {
     "@angular/animations": "~10.2.4",
