@@ -12,7 +12,7 @@
     "build:cid": "ng build @xploregroup/components"
     
   },
-  "private": false,
+  "private": true,
   "prepublishOnly": true,
   "publishConfig": {
     "@jamarinXG:registry": "https://npm.pkg.github.com"
