@@ -8,9 +8,12 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build:ci": "ng build @xploregroup/components --configuration production"
+    "build:ci": "ng build @xploregroup/components --prod",
+    "build:cid": "ng build @xploregroup/components"
+    
   },
   "private": true,
+  "prepublishOnly": true,
   "dependencies": {
     "@angular/animations": "~10.2.4",
     "@angular/common": "~10.2.4",
