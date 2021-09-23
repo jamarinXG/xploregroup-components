@@ -23,10 +23,8 @@ jobs:
           restore-keys: npm-
       - name: Install dependencies
         run: npm install
-      - name: Check
-        run: ls
       - name: Build project
-        run: npm run build
+        run: npm run ci:build
       - name: Publish package
         uses: JS-DevTools/npm-publish@v1
         with:
