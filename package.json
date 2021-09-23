@@ -14,6 +14,9 @@
   },
   "private": false,
   "prepublishOnly": true,
+  "publishConfig": {
+    "@jamarinXG:registry": "https://npm.pkg.github.com"
+  },
   "dependencies": {
     "@angular/animations": "~10.2.4",
     "@angular/common": "~10.2.4",
