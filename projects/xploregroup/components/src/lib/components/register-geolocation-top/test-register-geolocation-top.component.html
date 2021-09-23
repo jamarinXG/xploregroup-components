@@ -1,0 +1,25 @@
+<ng-container *ngIf="{ observable: component.data$ | async } as data">
+    <div class="location-top-msg" [@hideMsg]="stateName">
+        <div class="icon">
+            <i class="fas fa-globe-americas"></i>
+        </div>
+        <div class="right">
+            <div>
+                <p [innerHTML]="data.observable?.content"></p>
+            </div>
+            <div class="actions">
+                <button 
+                 class="btn btn-info btn-change-country"
+                 (click)=changeLocation(data.observable?.country)>
+                    <i class="far fa-flag"></i>
+                    {{ data.observable?.country }}
+                </button>
+                <button 
+                 class="btn btn-light"
+                 (click)=closeMsg()>
+                    Mantenerse en la página
+                </button>
+            </div>
+        </div>
+    </div>
+</ng-container>

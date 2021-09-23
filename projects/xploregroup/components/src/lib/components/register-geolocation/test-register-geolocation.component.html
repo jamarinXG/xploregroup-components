@@ -1,0 +1,18 @@
+<ng-container *ngIf="{ observable: component.data$ | async } as data">
+    <ng-template #registerModal let-modal class="register-modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="close modal-close btn-close-modal" aria-label="Close" (click)="dismiss('Cross click')">
+                    <span aria-hidden="true">×</span>
+                  </button>
+              <div [innerHTML]="data.observable?.content"></div>
+              <button class="btn btn-primary btn-block btn-change-location" (click)="changeLocation(data.observable?.country)">Cambiar localización a {{ data.observable?.country }}</button>
+            </div>
+          </div>
+        </div>
+    </ng-template>
+    
+    <button class="btn btn-info btn-open-modal" id="testid" (click)="openModal(registerModal)">Open modal</button>
+    
+</ng-container>

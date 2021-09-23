@@ -1,0 +1,39 @@
+<ng-container *ngIf="{ observable: component.data$ | async } as data">
+    <ng-template #modalData let-modal class="country-modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Country Selector</h4>
+              <button type="button" class="close modal-close" aria-label="Close" (click)="dismiss('Cross click')">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>Current country by IP: {{ data.observable?.country }}</p>
+              <div ngbDropdown>
+                <button class="btn btn-warning" id="countries" 
+                        ngbDropdownToggle>Select a country</button>
+                <div ngbDropdownMenu="countries" class="dropdown-menu">
+                  <button 
+                    id="{{'Clear_' + indice}}"
+                    class="button-dropdown"
+                  
+                    ngbDropdownItem *ngFor="let countryLang of countryList; let indice=index"
+                    (click) = "setLanguage(countryLang.code)"
+                  >
+                    {{ countryLang.text }}
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-info btn-close-modal" (click)="dismiss('Save click')">Close</button>
+            </div>
+          </div>
+        </div>
+    </ng-template>
+    
+    <button class="btn btn-info btn-open-modal" id="testid" (click)="openModal(modalData)">Show country selector</button>
+    <br>
+    <p>Country selected: <span class="country-selected">{{ countrySelected }}</span></p>
+</ng-container>

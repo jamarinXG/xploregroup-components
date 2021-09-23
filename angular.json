@@ -25,10 +25,19 @@
             "aot": true,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "./node_modules/@spartacus/smartedit/assets",
+                "output": "assets/"
+              }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/styles/spartacus/user.scss",
+              "src/styles/spartacus/storefinder.scss",
+              "src/styles/spartacus/product.scss",
+              "src/styles/spartacus/cart.scss"
             ],
             "scripts": []
           },
@@ -89,10 +98,19 @@
             "karmaConfig": "karma.conf.js",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "./node_modules/@spartacus/smartedit/assets",
+                "output": "assets/"
+              }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/styles/spartacus/user.scss",
+              "src/styles/spartacus/storefinder.scss",
+              "src/styles/spartacus/product.scss",
+              "src/styles/spartacus/cart.scss"
             ],
             "scripts": []
           }
@@ -123,6 +141,47 @@
           }
         }
       }
-    }},
+    },
+    "@xploregroup/components": {
+      "projectType": "library",
+      "root": "projects/xploregroup/components",
+      "sourceRoot": "projects/xploregroup/components/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/xploregroup/components/tsconfig.lib.json",
+            "project": "projects/xploregroup/components/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/xploregroup/components/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/xploregroup/components/src/test.ts",
+            "tsConfig": "projects/xploregroup/components/tsconfig.spec.json",
+            "karmaConfig": "projects/xploregroup/components/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/xploregroup/components/tsconfig.lib.json",
+              "projects/xploregroup/components/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
   "defaultProject": "xplore-components"
 }
